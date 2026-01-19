@@ -1,16 +1,57 @@
-# React + Vite
+# React Job Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **Job Browser application** built with **React** and **React Router v6**.
 
-Currently, two official plugins are available:
+Users can:
+- View job listings
+- View job details
+- Add a new job
+- Edit an existing job
+- Delete a job
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project focuses on learning **React Router loaders**, CRUD operations, and controlled forms.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Job listing page
+- Job details page
+- Add / Edit / Delete jobs
+- React Router loaders for data fetching
+- Toast notifications
+- Tailwind CSS styling
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+- React
+- React Router v6 (Data API)
+- Fetch API
+- React Toastify
+- Tailwind CSS
+
+---
+
+## 🧭 Routes
+
+| Route | Description |
+|------|------------|
+| `/` | Home page |
+| `/jobs` | All jobs |
+| `/jobs/:id` | Job details |
+| `/add-job` | Add job |
+| `/edit-job/:id` | Edit job |
+
+---
+
+## 📦 Data Loading (Loaders)
+
+Job data is fetched **before the page renders** using React Router loaders.
+
+```js
+const jobLoader = async ({ params }) => {
+  const res = await fetch(`/api/job/${params.id}`);
+  return res.json();
+};
